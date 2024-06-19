@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdu7qwo3wsmyf"]
+
+[ext_resource type="Script" path="res://scripts/mixa.gd" id="1_fjttq"]
+[ext_resource type="Texture2D" uid="uid://2qdwugoksdhm" path="res://assets/mixa-spritesheet.png" id="1_lu07k"]
+[ext_resource type="PackedScene" uid="uid://cyo5j7lxx2b84" path="res://scenes/killzone.tscn" id="2_a16y7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfx7n"]
+atlas = ExtResource("1_lu07k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waync"]
+atlas = ExtResource("1_lu07k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpge6"]
+atlas = ExtResource("1_lu07k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cahe5"]
+atlas = ExtResource("1_lu07k")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hlh3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfx7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waync")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpge6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cahe5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyyct"]
+size = Vector2(8, 12)
+
+[node name="mixa" type="Node2D"]
+script = ExtResource("1_fjttq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hlh3o")
+autoplay = "default"
+frame_progress = 0.295598
+
+[node name="RayCastRight" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(8, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(-8, 0)
+
+[node name="killzone" parent="." instance=ExtResource("2_a16y7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_oyyct")

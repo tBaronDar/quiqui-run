@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk555301lnfc1"]
+
+[ext_resource type="AudioStream" uid="uid://x0rqa5ys0b35" path="res://assets/audio/jazzy-pop-piano-japan-city-good.ogg" id="1_sv8ug"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_sv8ug")
+autoplay = true
+bus = &"Music"

@@ -1,0 +1,267 @@
+[gd_scene load_steps=19 format=3 uid="uid://ch8f73lnkcpyh"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_l7ibh"]
+[ext_resource type="FontFile" uid="uid://didl1mpe6ksp" path="res://fonts/kongtext.ttf" id="2_808so"]
+[ext_resource type="Script" path="res://scripts/hide_ui.gd" id="3_2a0fo"]
+[ext_resource type="Texture2D" uid="uid://7xaulintdrv3" path="res://assets/touch controls/arrow_left.png" id="3_8ceis"]
+[ext_resource type="Script" path="res://scripts/show_menu_button.gd" id="4_60x4o"]
+[ext_resource type="Texture2D" uid="uid://f6o25ynex836" path="res://assets/touch controls/arrow_left_pressed.png" id="4_pmaog"]
+[ext_resource type="Texture2D" uid="uid://b2615cihhovy5" path="res://assets/touch controls/arrow_right.png" id="5_e0iu5"]
+[ext_resource type="Texture2D" uid="uid://dpehx4ra0d0bb" path="res://assets/touch controls/arrow_right_pressed.png" id="6_tw7fg"]
+[ext_resource type="Texture2D" uid="uid://dp0rk6ga52w4h" path="res://assets/touch controls/arrow_up.png" id="7_2woi8"]
+[ext_resource type="Texture2D" uid="uid://jp3ag2hhe73k" path="res://assets/touch controls/arrow_up_pressed.png" id="8_4tdic"]
+[ext_resource type="Texture2D" uid="uid://tvmda0tgpeh4" path="res://assets/quiqui-tilesheet.png" id="10_cpdm5"]
+[ext_resource type="Script" path="res://scripts/restart_button.gd" id="11_6ngl2"]
+[ext_resource type="Script" path="res://scripts/exit_button.gd" id="12_udchn"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="14_4p80i"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_endj6"]
+texture = ExtResource("10_cpdm5")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+4:1/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0fmf5"]
+sources/0 = SubResource("TileSetAtlasSource_endj6")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1bb0"]
+texture = ExtResource("10_cpdm5")
+0:0/0 = 0
+1:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_12rew"]
+sources/0 = SubResource("TileSetAtlasSource_a1bb0")
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_l7ibh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="show_controls_button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.705882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+script = ExtResource("3_2a0fo")
+
+[node name="MenuButton" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.705882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "Menu"
+script = ExtResource("4_60x4o")
+
+[node name="score_label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.705882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "score"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="left" type="TouchScreenButton" parent="Control/MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(-12, 4)
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("3_8ceis")
+texture_pressed = ExtResource("4_pmaog")
+passby_press = true
+action = "move_left"
+
+[node name="right" type="TouchScreenButton" parent="Control/MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(30, 5)
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("5_e0iu5")
+texture_pressed = ExtResource("6_tw7fg")
+passby_press = true
+action = "move_right"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="jump" type="TouchScreenButton" parent="Control/MarginContainer/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(-40, -18)
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("7_2woi8")
+texture_pressed = ExtResource("8_4tdic")
+passby_press = true
+action = "jump"
+
+[node name="message_container" type="VBoxContainer" parent="Control/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TileMap" type="TileMap" parent="Control/MarginContainer/message_container"]
+tile_set = SubResource("TileSet_0fmf5")
+format = 2
+layer_0/tile_data = PackedInt32Array(131079, 196608, 0, 196615, 196608, 1, 262151, 196608, 1, 327687, 196608, 1, 393223, 196608, 1, 131080, 262144, 0, 196616, 262144, 1, 262152, 262144, 1, 327688, 262144, 1, 393224, 262144, 1, 131081, 262144, 0, 196617, 262144, 1, 262153, 262144, 1, 327689, 262144, 1, 393225, 262144, 1, 131082, 262144, 0, 196618, 262144, 1, 262154, 262144, 1, 327690, 262144, 1, 393226, 262144, 1, 131083, 262144, 0, 196619, 262144, 1, 262155, 262144, 1, 327691, 262144, 1, 393227, 262144, 1, 131084, 262144, 0, 196620, 262144, 1, 262156, 262144, 1, 327692, 262144, 1, 393228, 262144, 1, 458759, 196608, 2, 458760, 262144, 2, 458761, 262144, 2, 458762, 262144, 2, 458763, 262144, 2, 458764, 262144, 2, 131086, 327680, 0, 196622, 327680, 1, 262158, 327680, 1, 327694, 327680, 1, 393230, 327680, 1, 458766, 327680, 2, 131085, 262144, 0, 196621, 262144, 1, 262157, 262144, 1, 327693, 262144, 1, 393229, 262144, 1, 458765, 262144, 2)
+
+[node name="label" type="Label" parent="Control/MarginContainer/message_container/TileMap"]
+offset_left = 116.0
+offset_top = 38.0
+offset_right = 236.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0.956863, 0.705882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "Congrats! 
+You have gathered all the Sushi."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="restart_button" type="Button" parent="Control/MarginContainer/message_container/TileMap"]
+offset_left = 145.0
+offset_top = 87.0
+offset_right = 209.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.890196, 0.596078, 0.294118, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "Restart"
+script = ExtResource("11_6ngl2")
+
+[node name="exit_button" type="Button" parent="Control/MarginContainer/message_container/TileMap"]
+offset_left = 158.0
+offset_top = 105.0
+offset_right = 198.0
+offset_bottom = 121.0
+theme_override_colors/font_color = Color(0.890196, 0.596078, 0.294118, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "Exit"
+script = ExtResource("12_udchn")
+
+[node name="main_menu" type="VBoxContainer" parent="Control/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("14_4p80i")
+
+[node name="TileMap" type="TileMap" parent="Control/MarginContainer/main_menu"]
+tile_set = SubResource("TileSet_12rew")
+format = 2
+layer_0/tile_data = PackedInt32Array(65539, 262144, 1, 131075, 262144, 1, 65536, 262144, 1, 65537, 262144, 1, 65538, 262144, 1, 131074, 262144, 1, 131072, 262144, 1, 131073, 262144, 1, 4, 327680, 1, 65540, 327680, 1, 131076, 327680, 1, 196607, 196608, 1, 131071, 196608, 1, 65535, 196608, 1, 327679, 196608, 2, 262144, 262144, 2, 262145, 262144, 2, 262146, 262144, 2, 262147, 262144, 2, 262148, 327680, 2, 196608, 262144, 1, 196609, 262144, 1, 196610, 262144, 1, 196611, 262144, 1, 196612, 327680, 1, 262143, 196608, 1, -65537, 196608, 0, -131072, 262144, 0, -131071, 262144, 0, -131070, 262144, 0, -131069, 262144, 0, -131068, 327680, 0, -65535, 262144, 1, -65534, 262144, 1, -65533, 262144, 1, 3, 262144, 1, 2, 262144, 1, 1, 262144, 1, 0, 262144, 1, -65536, 262144, 1, -65532, 327680, 1, -1, 196608, 1)
+
+[node name="resume_button" type="Button" parent="Control/MarginContainer/main_menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.705882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "Resume
+"
+
+[node name="restart_button" type="Button" parent="Control/MarginContainer/main_menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.705882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "Restart
+"
+script = ExtResource("11_6ngl2")
+
+[node name="exit_button" type="Button" parent="Control/MarginContainer/main_menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.705882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_808so")
+theme_override_font_sizes/font_size = 8
+text = "Exit"
+script = ExtResource("12_udchn")
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/MenuButton" to="Control/MarginContainer/VBoxContainer/HBoxContainer/MenuButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/main_menu/resume_button" to="Control/MarginContainer/main_menu" method="_on_resume_button_pressed"]

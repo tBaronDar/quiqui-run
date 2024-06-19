@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxprrhjljv1fu"]
+
+[ext_resource type="FontFile" uid="uid://didl1mpe6ksp" path="res://fonts/kongtext.ttf" id="1_g0s21"]
+
+[node name="custom_label" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.156863, 0.8, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_g0s21")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
